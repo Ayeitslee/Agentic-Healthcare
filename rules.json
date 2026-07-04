@@ -1,0 +1,12 @@
+{
+  "payer_contracts": {
+    "BlueShield": {
+      "prior_authorization_required": [
+        {
+          "code": "70450",
+          "description": "CT Scan, Head or Brain"
+        }
+      ]
+    }
+  }
+}
