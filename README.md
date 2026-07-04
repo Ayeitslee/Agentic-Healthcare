@@ -16,4 +16,4 @@ This "Simple Gatekeeper" utilizes Agentic AI principles to embed compliance chec
 ## Technical Setup
 * **Language:** Python (Flask)
 * **Data Structure:** JSON-based "Executable Policy"
-* **Security:** Modeled after CampusGenAI, this architecture is designed for a private, encrypted environment where Protected Health Information (PHI) is tokenized before processing.
+* **Security:** This architecture is designed for a private, encrypted environment where Protected Health Information (PHI) is tokenized before processing.
