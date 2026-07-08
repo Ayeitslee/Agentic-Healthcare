@@ -1,17 +1,16 @@
 # Agentic-Healthcare
 
-TPO Gatekeeper: A Living Compliance POC
+TPO Gatekeeper: A Rule Validator
 
 ## Overview
-A Proof of Concept (POC) showing a Deterministic Gatekeeper for healthcare TPO (Treatment, Payment, Operations). It replaces human compliance methods by presenting organizational policies directly as computer-executable logic.
+A Proof of Concept (POC) showing a Deterministic Gatekeeper for healthcare TPO (Treatment, Payment, Operations). It replaces human compliance methods by computer-executable logic.
 
-## Core Concept: From Static to Living Compliance
-This "Simple Gatekeeper" utilizes Agentic AI principles to embed compliance checks directly into the workflow.
+This TPO Rule Validator utilizes agentic AI principles to embed real-time compliance checks directly into the system, automatically verifying whether incoming codes and transactions are valid.
 
 ## Key Features
 * **Deterministic Execution:** The system uses a fixed rule engine to ensure the same procedure inputs always produce the same compliance outputs.
 * **Constrained Autonomy:** The AI agent operates only within the boundaries defined in rules.json, preventing unauthorized actions.
-* **Audit Defensibility (The Replay):** Every decision is logged with sufficient context to reconstruct exactly why an action was taken, transforming audits into database queries.
+* **Audit Defensibility (The Replay):** Manual compliance audits into simple database queries
 
 ## Technical Setup
 * **Language:** Python (Flask)
