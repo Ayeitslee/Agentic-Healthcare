@@ -1,13 +1,3 @@
-# Assessment
-
-# Hacking to Prove a Concept: Demonstrating the first principle that 
-# "compliance stops being a document" and "becomes a system". 
-# Instead of a person checking a binder, the code performs the validation.
-
-# Deterministic vs. Probabilistic: By using a JSON-based rule set, 
-# The system is reliable and safe for healthcare TPO.
-
-# Explainability: The audit_log.json allows an auditor to "replay" 
-# the exact decision sequence, satisfying the requirement for regulatory defensibility.
+# To install dependencies, run: pip install -r requirements.txt
 
 flask
