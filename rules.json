@@ -6,6 +6,12 @@
           "code": "70450",
           "description": "CT Scan, Head or Brain"
         }
+      ],
+      "no_prior_authorization_required": [
+        {
+          "code": "99213",
+          "description": "Office Visit for an Evaluation"
+        }
       ]
     }
   }

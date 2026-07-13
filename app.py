@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import json
-import datetime
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 app = Flask(__name__)
 
@@ -11,6 +12,10 @@ def load_rules():
 
 @app.route('/validate_claim', methods=['POST'])
 def validate_claim():
+    # 1. Generate the correct Eastern Time timestamp
+    eastern = ZoneInfo("America/New_York")
+    timestamp = datetime.now(eastern).isoformat()
+    
     data = request.json
     rules = load_rules()
     payer = data.get('payer')
@@ -28,17 +33,28 @@ def validate_claim():
         status = "Flagged"
         reason = f"Deterministic Rule Violation: Prior Authorization Required for code {procedure_code}."
 
-    # Audit Defensibility: Log the decision sequence
+    # 2. Audit Defensibility: Log the decision sequence
     log_entry = {
-        "timestamp": str(datetime.datetime.now()),
+        "timestamp": timestamp, # Using the variable defined above
         "input": data,
         "result": status,
         "reasoning_steps": reason
     }
+    
+    # Open and write the log
     with open('audit_log.json', 'a') as f:
         f.write(json.dumps(log_entry) + "\n")
 
-    return jsonify({"status": status, "reason": reason})
+    # 3. Return the response (Make sure this is NOT indented inside the 'with' block)
+    return jsonify({
+        "status": status, 
+        "reason": reason,
+        "timestamp": timestamp
+    })
+
+@app.route('/')
+def home():
+    return "Gatekeeper API is running!"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

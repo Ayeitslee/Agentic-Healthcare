@@ -2,7 +2,7 @@ import requests
 import json
 
 # The URL of your live Flask server
-URL = "http://127.0.0.1:5001/validate_claim"
+URL = "http://127.0.0.1:5000/validate_claim"
 
 def run_test(claim_data, description):
     print(f"--- Testing: {description} ---")
@@ -10,11 +10,12 @@ def run_test(claim_data, description):
     result = response.json()
     print(f"Status: {result['status']}")
     print(f"Reason: {result['reason']}\n")
+    
 
-# Scenario A: Valid Claim (No Authorization Required)
+# Scenario A: Valid Claim (No Authorization Required for an Evaluation)
 claim_a = {
     "payer": "BlueShield",
-    "procedure_code": "99213",  # Standard Office Visit
+    "procedure_code": "99213",
     "patient_name": "John Doe"
 }
 
@@ -27,6 +28,15 @@ claim_b = {
     # missing auth_id!
 }
 
+ # Scenario C: Approval Claim (Auth ID shown)
+claim_c = {
+    "payer": "BlueShield",
+    "procedure_code": "70450", 
+    "patient_name": "Jane Smith",
+    "auth_id": "AUTH12131"
+}
+
 if __name__ == "__main__":
     run_test(claim_a, "Standard claim with no special requirements")
     run_test(claim_b, "CT Scan claim missing required Prior Authorization")
+    run_test(claim_c, "CT Scan claim WITH valid Prior Authorization")
