@@ -9,7 +9,7 @@ This TPO Rule Validator utilizes agentic AI principles to embed real-time compli
 
 ## Main Functions
 * **Living Compliance:** The system reads from a version-controlled, hard-coded ruleset that serves as a literal, machine-executable representation of legal contracts.
-* **Constrained Autonomy:** If a procedure code requires prior authorization and it is missing, the system forces a strict, deterministic rejection leaving no zero grey areas.
+* **Generative Autonomy:** If a procedure code requires prior authorization and it is missing, the system forces a strict, deterministic rejection leaving no zero grey areas.
 * **Audit Recorder & Trail:** Every decision is permanently recorded for full traceability, allowing for replay. The system generates a log detailing the exact timestamp, the contract rule applied, and the explicit reason for the failure (e.g., missing authorization parameter).
 
 ## Technical Setup
