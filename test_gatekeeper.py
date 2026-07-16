@@ -24,7 +24,7 @@ claim_a = {
 claim_b = {
     "payer": "BlueShield",
     "procedure_code": "70450", 
-    "patient_name": "Jane Smith"
+    "patient_name": "John Smith"
     # missing auth_id!
 }
 
