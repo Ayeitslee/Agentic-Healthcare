@@ -54,7 +54,7 @@ def validate_claim():
 
 @app.route('/')
 def home():
-    return "Gatekeeper API is running!"
+    return "Gatekeeper API is actively online!"
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
