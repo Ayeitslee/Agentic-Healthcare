@@ -5,11 +5,6 @@ from zoneinfo import ZoneInfo
 
 app = Flask(__name__)
 
-
-  # 1. Generate the correct Eastern Time timestamp
-    eastern = ZoneInfo("America/New_York")
-    timestamp = datetime.now(eastern).isoformat()
-
 # Load the "Living Policy" from rules.json
 def load_rules():
     with open('rules.json', 'r') as f:
@@ -17,7 +12,10 @@ def load_rules():
 
 @app.route('/validate_claim', methods=['POST'])
 def validate_claim():
-
+    # 1. Generate the correct Eastern Time timestamp
+    eastern = ZoneInfo("America/New_York")
+    timestamp = datetime.now(eastern).isoformat()
+    
     data = request.json
     rules = load_rules()
     payer = data.get('payer')
