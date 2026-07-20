@@ -45,7 +45,7 @@ def validate_claim():
         "timestamp": timestamp,
         "input": data,
         "result": status,
-        "reasoning_steps": reason
+        "reasonings": reason
     }
 
     with open('audit_log.json', 'a') as f:
